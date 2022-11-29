@@ -1,0 +1,41 @@
+---
+title: "Assessment2"
+output: html_document
+date: "2022-11-28"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(fig.align = "center")
+```
+
+```{r}
+install.packages("tidyverse")
+install.packages("ggplot2")
+library(ggplot2)
+library(tidyverse)
+```
+
+## Learning to references figures
+
+```{r}
+x = seq(1:100)
+y = rnorm(100)
+dat = data.frame(x, y)
+ggplot(dat, aes(x=x, y=y)) + geom_line() + labs(caption = "This is random noice")
+```
+The noicy data is meaningless most of the time as there is too much variation (see Figure \@ref(fig:ggplot)
+
+## Learning to reference tables
+
+```{r}
+install.packages("dslabs")
+library(dslabs)
+data("dat")
+
+table_data <- head(dat, 5)
+knitr::kable(table_data, 
+             caption = "Random values generated from a normal distribution",
+             digits = 2)
+```
+This data table (Table \@ref(tab:table_data) includes a sample of the data set that has been used to create the Figure \@ref(fig:ggplot).
+
